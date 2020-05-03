@@ -2,68 +2,70 @@
     <div>
     	<iframe id="splash" width="960" height="480" src="banners/splash.html"></iframe>
         <div style="top: 70px;font-size: 75px;font-weight: bold;">
-        	What Happens Next?
+        	次に何が起こるのか?
        	</div>
 		<div style="font-weight: 500;top: 140px;left: 10px;font-size: 29px;">
-			COVID-19 Futures, Explained With Playable Simulations
+			シミュレーションで分かる新型コロナウイルス感染症 (COVID-19) の未来
 		</div>
 		<div style="font-weight: 100;top: 189px;left: 10px;font-size: 19px;line-height: 21px;">
 			<b>
-				🕐 30 min play/read
+				🕐 所要時間 30分
 				&nbsp;&middot;&nbsp;
 			</b>
-			by
 			<a href="https://scholar.google.com/citations?user=_wHMGkUAAAAJ&amp;hl=en">Marcel Salathé</a>
-			(epidemiologist)
+			(疫学者)
 			&
 			<a href="https://ncase.me/">Nicky Case</a>
-			(art/code)
+			(アート/コード)
+      &
+      <a href="http://eed3si9n.com/">Eugene Yokota</a>
+      (和訳)
 		</div>
 	</div>
 </div>
 
-"The only thing to fear is fear itself" was stupid advice.
+「真に恐れるべきは恐怖そのものである」とは馬鹿げた忠告だ。
 
-Sure, don't hoard toilet paper – but if policymakers fear fear itself, they'll downplay real dangers to avoid "mass panic". Fear's not the problem, it's how we *channel* our fear. Fear gives us energy to deal with dangers now, and prepare for dangers later.
+勿論トイレットペーパーの買いだめはするべきでは無い。しかし、政策立案者が恐怖そのものを恐れると、「集団パニック」を予防せんと彼らは真の危険を過小評価してしまう。恐怖が問題なのではなく、我々がその恐怖のエネルギーをどこに向けるかが問題だ。恐怖は今の脅威に対処し、将来の危険に備えるエネルギーを与えてくれる。
 
-Honestly, we (Marcel, epidemiologist + Nicky, art/code) are worried. We bet you are, too! That's why we've channelled our fear into making these **playable simulations**, so that *you* can channel your fear into understanding:
+正直の所、私たち (疫学者 Marcel + アート/コード担当の Nicky) は心配で仕方がない。あなたも心配だと思う。私たちは恐怖の力をこの**いじれるシミュレーション**を作ることに向けた。あなたが恐怖の力を以下のことを理解することに向けて欲しいと思ったからだ:
 
-* **The Last Few Months** (epidemiology 101, SEIR model, R & R<sub>0</sub>)
-* **The Next Few Months** (lockdowns, contact tracing, masks)
-* **The Next Few Years** (loss of immunity? no vaccine?)
+* **過去数ヶ月のこと** (疫学入門、SEIR モデル、R & R<sub>0</sub>)
+* **次の数ヶ月のこと** (ロックダウン、コンタクト・トレーシング、マスク)
+* **次の数年のこと** (免疫の喪失? ワクチンが無い場合?)
 
-This guide (published May 1st, 2020. click this footnote!→[^timestamp]) is meant to give you hope *and* fear. To beat COVID-19 **in a way that also protects our mental & financial health**, we need optimism to create plans, and pessimism to create backup plans. As Gladys Bronwyn Stern once said, *“The optimist invents the airplane and the pessimist the parachute.”*
+このガイド (2020年5月1日に公開された。脚注をクリック!→[^timestamp]) はあなたに希望を与え、恐怖をもたらすことを分かった上で書いている。**メンタルヘルスと金銭的な健全性の両方を保護する形**で COVID-19 をやっつけるには、プランを練るための楽観論と、バックアッププランを練るための悲観論を必要とする。Gladys Bronwyn Stern を引用すると、「楽観論者は飛行機を発明し、悲観論者はパラシュートを発明する」。
 
-[^timestamp]: These footnotes will have sources, links, or bonus commentary. Like this commentary!
-    
+[^timestamp]: これらの脚注には、原典、リンク、ボーナスコメントなどが書かれる。
+
     **This guide was published on May 1st, 2020.** Many details will become outdated, but we're confident this guide will cover 95% of possible futures, and that Epidemiology 101 will remain forever useful.
 
-So, buckle in: we're about to experience some turbulence.
+シートベルトを着用してください。機体の揺れが予想されます。
 
 <div class="section chapter">
     <div>
 		<img src="banners/curve.png" height=480 style="position: absolute;"/>
-        <div>The Last Few Months</div>
+        <div>過去数ヶ月のこと</div>
     </div>
 </div>
 
-Pilots use flight simulators to learn how not to crash planes.
+パイロットはフライト・シミュレーターを使って飛行機を墜落させない方法を学ぶ。
 
-**Epidemiologists use epidemic simulators to learn how not to crash humanity.**
+**疫学者はエピデミック・シミュレーターを使って人類を墜落させない方法を学ぶ。**
 
-So, let's make a very, *very* simple "epidemic flight simulator"! In this simulation, <icon i></icon> Infectious people can turn <icon s></icon> Susceptible people into more <icon i></icon> Infectious people:
+まずは、非常にシンプルな「感染症フライト・シミュレーター」を作ってみよう! このシミュレーションでは <icon i></icon> **伝染性のある人々**が <icon s></icon> **感受性のある人々**をより多くの <icon i></icon> 伝染性のある人々へ変えていく:
 
 ![](pics/spread.png)
 
-It's estimated that, *at the start* of a COVID-19 outbreak, the virus jumps from an <icon i></icon> to an <icon s></icon> every 4 days, *on average*.[^serial_interval] (remember, there's a lot of variation)
+COVID-19 アウトブレイクの**初期**には、ウイルスは**平均して** <icon i></icon> から <icon s></icon> へと 4日おきにジャンプすると推定されている。[^serial_interval] (当然これには色々と差異がある。)
 
 [^serial_interval]: “The mean [serial] interval was 3.96 days (95% CI 3.53–4.39 days)”. [Du Z, Xu X, Wu Y, Wang L, Cowling BJ, Ancel Meyers L](https://wwwnc.cdc.gov/eid/article/26/6/20-0357_article) (Disclaimer: Early release articles are not considered as final versions)
 
-If we simulate "double every 4 days" *and nothing else*, on a population starting with just 0.001% <icon i></icon>, what happens? 
+「4日おきに 2倍」だけシミュレートして**他の要素を無視すると**、全人口の 0.001% <icon i></icon> からスタートしてどうなるだろうか?
 
-**Click "Start" to play the simulation! You can re-play it later with different settings:** (technical caveats: [^caveats])
+**「スタート」をクリックしてシミュレーションをプレイしてみよう! 別の設定でリプレイしてみることもできる:** (専門家への注意: [^caveats])
 
-[^caveats]: **Remember: all these simulations are super simplified, for educational purposes.**
+[^caveats]: **これらのシミュレーションは教育目的のために非常に簡易化してある。**
     
     One simplification: When you tell this simulation "Infect 1 new person every X days", it's actually increasing # of infected by 1/X each day. Same for future settings in these simulations – "Recover every X days" is actually reducing # of infected by 1/X each day.
     
@@ -73,29 +75,29 @@ If we simulate "double every 4 days" *and nothing else*, on a population startin
 		<iframe src="sim?stage=epi-1" width="800" height="540"></iframe>
 </div>
 
-This is the **exponential growth curve.** Starts small, then explodes. "Oh it's just a flu" to "Oh right, flus don't create *mass graves in rich cities*". 
+これは、**指数関数的成長曲線**だ。初めは小さく、突然爆発的に伸びる。「ただのインフルだよ」から「確かにインフルで都市部に集団墓地が作られることは無いな」への変化だ。
 
 ![](pics/exponential.png)
 
-But, this simulation is wrong. Exponential growth, thankfully, can't go on forever. One thing that stops a virus from spreading is if others *already* have the virus:
+しかし、このシミュレーションは間違っている。指数関数的成長は、永遠に続くことはできない。他の人が既にウイルスを持っていればそれ以上ウイルスは伝搬することは無いからだ:
 
 ![](pics/susceptibles.png)
 
-The more <icon i></icon>s there are, the faster <icon s></icon>s become <icon i></icon>s, **but the fewer <icon s></icon>s there are, the *slower* <icon s></icon>s become <icon i></icon>s.**
+<icon i></icon> の人がいればいるほどより速く <icon s></icon> の人は <icon i></icon> になるが、**<icon s></icon> の人が少なくなるほど、より遅く <icon s></icon> の人は <icon i></icon> になる**。
 
-How's this change the growth of an epidemic? Let's find out:
+このことはエピデミックの成長にどう影響があるだろうか? 確かめてみよう:
 
 <div class="sim">
 		<iframe src="sim?stage=epi-2" width="800" height="540"></iframe>
 </div>
 
-This is the "S-shaped" **logistic growth curve.** Starts small, explodes, then slows down again.
+これは「S字の」**ロジスティック成長曲線**と呼ばれる。初めは小さく、爆発して、また遅くなる。
 
-But, this simulation is *still* wrong. We're missing the fact that <icon i></icon> Infectious people eventually stop being infectious, either by 1) recovering, 2) "recovering" with lung damage, or 3) dying.
+しかし、このシミュレーションは**それでも**間違っている。<icon i></icon> **伝染性のある人**がいずれ 1) 回復する 2) 肺に後遺症を持って「回復」する 3) 死亡するなどして伝染性が無くなることを計算に入れていない。
 
-For simplicity's sake, let's pretend that all <icon i></icon> Infectious people become <icon r></icon> Recovered. (Just remember that in reality, some are dead.) <icon r></icon>s can't be infected again, and let's pretend – *for now!* – that they stay immune for life.
+便宜性のため、全ての <icon i></icon> **伝染性のある人**は <icon r></icon> **回復した人**になることにしよう。(現実では、死んでしまう人もいることを覚えておいてほしい。) <icon r></icon> の人は再び感染することはできなくて、**とりあえず**一生免疫を持つと仮定しよう。
 
-With COVID-19, it's estimated you're <icon i></icon> Infectious for 10 days, *on average*.[^infectiousness] That means some folks will recover before 10 days, some after. **Here's what that looks like, with a simulation *starting* with 100% <icon i></icon>:**
+COVID-19 では、<icon i></icon> **伝染性**は平均して10日続くと推定されている。[^infectiousness] そのため、10日経つ前に回復する人もいれば、10日経ってから回復する人もいるということだ。**<icon i></icon> が 100% から始めるたシミュレーションは以下のようになる:**
 
 [^infectiousness]: “The median communicable period \[...\] was 9.5 days.” [Hu, Z., Song, C., Xu, C. et al](https://link.springer.com/article/10.1007/s11427-020-1661-4) Yes, we know "median" is not the same as "average". For simplified educational purposes, close enough.
 
@@ -103,114 +105,111 @@ With COVID-19, it's estimated you're <icon i></icon> Infectious for 10 days, *on
 		<iframe src="sim?stage=epi-3" width="800" height="540"></iframe>
 </div>
 
-This is the opposite of exponential growth, the **exponential decay curve.**
+これは指数関数的成長の逆で、**指数関数的減衰曲線**だ。
 
-Now, what happens if you simulate S-shaped logistic growth *with* recovery?
+次に、S字のロジスティック成長曲線と回復を合わせるとどうなるだろうか?
 
 ![](pics/graphs_q.png)
 
-Let's find out.
+確かめてみよう。
 
-<b style='color:#ff4040'>Red curve</b> is *current* cases <icon i></icon>,    
-<b style='color:#999999'>Gray curve</b> is *total* cases (current + recovered <icon r></icon>),
-starts at just 0.001% <icon i></icon>:
+<b style='color:#ff4040'>赤の曲線</b>は、**現在**の患者数 <icon i></icon> で、    
+<b style='color:#999999'>グレーの曲線</b>は**総患者数** (現在 + 回復済み <icon r></icon>)　で、<icon i></icon> が 0.001% から始める:
 
 <div class="sim">
 		<iframe src="sim?stage=epi-4" width="800" height="540"></iframe>
 </div>
 
-And *that's* where that famous curve comes from! It's not a bell curve, it's not even a "log-normal" curve. It has no name. But you've seen it a zillion times, and beseeched to flatten.
+**これ**が有名な曲線の由来だ! ベル曲線でもないし、対数正規曲線も違う。名前はまだ無い。しかし、あなたはこれを平らにしようと懇願する人を既に何度も見たことがあるだろう。
 
-This is the the **SIR Model**,[^sir]    
-(<icon s></icon>**S**usceptible <icon i></icon>**I**nfectious <icon r></icon>**R**ecovered)      
-the *second*-most important idea in Epidemiology 101:
+<icon s></icon>**S**usceptible (感受性) <icon i></icon>**I**nfectious (伝染性) <icon r></icon>**R**ecovered (回復) の頭文字を取ってこれを **SIR モデル** [^sir] と呼ぶ。これは疫学入門で 2番目に大切なことだ:
 
 [^sir]: For more technical explanations of the SIR Model, see [the Institute for Disease Modeling](https://www.idmod.org/docs/hiv/model-sir.html#) and [Wikipedia](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model)
 
 ![](pics/sir.png)
 
-**NOTE: The simulations that inform policy are way, *way* more sophisticated than this!** But the SIR Model can still explain the same general findings, even if missing the nuances.
+**注意: 政策の計画に使われるシミュレーションはこれよりもっと、もっと高度なものだ!** しかし、この SIRモデルにニュアンスが欠けるとしても、分かっている知見を説明することは可能だ。
 
-Actually, let's add one more nuance: before an <icon s></icon> becomes an <icon i></icon>, they first become <icon e></icon> Exposed. This is when they have the virus but can't pass it on yet – infect*ed* but not yet infect*ious*.
+やっぱりもう1つのニュアンスを追加しよう。<icon s></icon> の人が <icon i></icon> になる前に、その人たちは <icon e></icon> **曝露**した人になる。これは、ウイルスを保菌するが、他の人にはまだうつせない状態で、**感染した**がまだ**伝染性が無い**状態だ。
 
 ![](pics/seir.png)
 
-(This variant is called the **SEIR Model**[^seir], where the "E" stands for <icon e></icon> "Exposed". Note this *isn't* the everyday meaning of "exposed", when you may or may not have the virus. In this technical definition, "Exposed" means you definitely have it. Science terminology is bad.)
+**曝露** (Exposed) の "E" を取って、これは **SEIR モデル**[^seir]と呼ばれる。日常的な「さらされる」という意味だとウイルスを持っているか、持っていないか両方に取れるかもしれない。用語としての「曝露」は、確実にウイルスを保菌した状態だ。
 
 [^seir]: For more technical explanations of the SEIR Model, see [the Institute for Disease Modeling](https://www.idmod.org/docs/hiv/model-seir.html) and [Wikipedia](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model)
 
-For COVID-19, it's estimated that you're <icon e></icon> infected-but-not-yet-infectious for 3 days, *on average*.[^latent] What happens if we add that to the simulation?
+COVID-19 では、<icon e></icon> 「感染したが、伝染性は無い」状態が**平均して** 3日続くと推定されている。[^latent] これをシミュレーションに追加するとどうなるだろう?
 
 [^latent]: “Assuming an incubation period distribution of mean 5.2 days from a separate study of early COVID-19 cases, we inferred that infectiousness started from 2.3 days (95% CI, 0.8–3.0 days) before symptom onset” (translation: Assuming symptoms start at 5 days, infectiousness starts 2 days before = Infectiousness starts at 3 days) [He, X., Lau, E.H.Y., Wu, P. et al.](https://www.nature.com/articles/s41591-020-0869-5)
 
-<b style='color:#ff4040'>Red <b style='color:#FF9393'>+ Pink</b> curve</b> is *current* cases (infectious <icon i></icon> + exposed <icon e></icon>),    
-<b style='color:#888'>Gray curve</b> is *total* cases (current + recovered <icon r></icon>):
+<b style='color:#ff4040'>赤 <b style='color:#FF9393'>+ ピンク</b> の曲線</b>は**現在**の患者数 (伝染性 <icon i></icon> + 曝露 <icon e></icon>) で、    
+<b style='color:#888'>グレーの曲線</b>は**総患者数** (現在 + 回復済み <icon r></icon>) だ:
 
 <div class="sim">
 		<iframe src="sim?stage=epi-5" width="800" height="540"></iframe>
 </div>
 
-Not much changes! How long you stay <icon e></icon> Exposed changes the ratio of <icon e></icon>-to-<icon i></icon>, and *when* current cases peak... but the *height* of that peak, and total cases in the end, stays the same.
+あまり変わらない! <icon e></icon> 曝露された状態がどれだけ続くかは <icon e></icon>-対-<icon i></icon> 率と、**いつ**現在の患者数がピークに達するかを変化させる... しかし、ピークの**高さ**と最終的な総患者数は変わらない。
 
-Why's that? Because of the *first*-most important idea in Epidemiology 101:
+何故かって? その理由は疫学入門で1番大切なことだ:
 
 ![](pics/r.png)
 
-Short for "Reproduction number". It's the *average* number of people an <icon i></icon> infects *before* they recover (or die).
+これは再生産数 (reproduction number) の略だ。これは <icon i></icon> の人が回復 (もしくは死亡) する前に何人伝染させるかの**平均**だ。
 
 ![](pics/r2.png)
 
-**R** changes over the course of an outbreak, as we get more immunity & interventions.
+**R** はアウトブレイクの過程で、私たちが免疫を得たり、介入を行うことによって変化し続けていく。
 
-**R<sub>0</sub>** (pronounced R-nought) is what R is *at the start of an outbreak, before immunity or interventions*. R<sub>0</sub> more closely reflects the power of the virus itself, but it still changes from place to place. For example, R<sub>0</sub> is higher in dense cities than sparse rural areas.
+基本再生産数 **R<sub>0</sub>** (R-nought、アーナットと読まれる) は、R の初期値で**免疫を得たり、介入を行う前**の数値だ。R<sub>0</sub> はウイルスそのものの力を反映するが、それでも場所によって変化する。例えば、R<sub>0</sub> は田舎よりも人口密度の高い都市部で高い傾向にある。
 
-(Most news articles – and even some research papers! – confuse R and R<sub>0</sub>. Again, science terminology is bad)
+(多くのニュース記事や、論文でさえこの R と R<sub>0</sub> が混同されている。科学用語は悪だ。)
 
-The R<sub>0</sub> for "the" seasonal flu is around 1.28[^r0_flu]. This means, at the *start* of a flu outbreak, each <icon i></icon> infects 1.28 others *on average.* (If it sounds weird that this isn't a whole number, remember that the "average" mom has 2.4 children. This doesn't mean there's half-children running about.)
+季節性インフルエンザの R<sub>0</sub> は約 1.28[^r0_flu]だ。そのため、インフルエンザのアウトブレイク**初め**は、<icon i></icon> の人は**平均して** 1.28人に伝染させる。(これが整数じゃないことに違和感があるならば、平均すると母親は 2.4人の子供を持つことを考えてみて欲しい。だからといって、半分になった子供が走り回っている訳ではない。)
 
 [^r0_flu]: “The median R value for seasonal influenza was 1.28 (IQR: 1.19–1.37)” [Biggerstaff, M., Cauchemez, S., Reed, C. et al.](https://bmcinfectdis.biomedcentral.com/articles/10.1186/1471-2334-14-480)
 
-The R<sub>0</sub> for COVID-19 is estimated to be around 2.2,[^r0_covid] though one *not-yet-finalized* study estimates it was 5.7(!) in Wuhan.[^r0_wuhan]
+COVID-19 の R<sub>0</sub> は約 2.2 だと推定されていて[^r0_covid]、まだ最終的な結果は出ていないが武漢では 5.7(!) であったという研究が出ている。[^r0_wuhan]
 
 [^r0_covid]: “We estimated the basic reproduction number R0 of 2019-nCoV to be around 2.2 (90% high density interval: 1.4–3.8)” [Riou J, Althaus CL.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7001239/)
 
 [^r0_wuhan]: “we calculated a median R0 value of 5.7 (95% CI 3.8–8.9)” [Sanche S, Lin YT, Xu C, Romero-Severson E, Hengartner N, Ke R.](https://wwwnc.cdc.gov/eid/article/26/7/20-0282_article)
 
-In our simulations – *at the start & on average* – an <icon i></icon> infects someone every 4 days, over 10 days. "4 days" goes into "10 days" two-and-a-half times. This means – *at the start & on average* – each <icon i></icon> infects 2.5 others. Therefore, R<sub>0</sub> = 2.5. (caveats:[^r0_caveats_sim])
+私たちのシミュレーションでは、**初期には平均して** 1人の <icon i></icon> は 10日の間、誰かを 4日毎に伝染させる。「4日」は「10日」に 2.5回入る。そのため、**初期には平均して** 1人の <icon i></icon> は 2.5人の他人に伝染させる。つまり、 R<sub>0</sub> = 2.5 となる。 (注意:[^r0_caveats_sim])
 
-[^r0_caveats_sim]: This is pretending that you're equally infectious all throughout your "infectious period". Again, simplifications for educational purposes.
+[^r0_caveats_sim]: これは伝染期間中等しく伝染性を持つことを仮定する。教育目的のための簡易化だ。
 
-**Play with this R<sub>0</sub> calculator, to see how R<sub>0</sub> depends on recovery time & new-infection time:**
+**R<sub>0</sub> 計算機をいじってみて、R<sub>0</sub> が回復に要する期間と新しい伝染に要する期間に依存することを確かめてみよう:**
 
 <div class="sim">
 		<iframe src="sim?stage=epi-6a&format=calc" width="285" height="255"></iframe>
 </div>
 
-But remember, the fewer <icon s></icon>s there are, the *slower* <icon s></icon>s become <icon i></icon>s. The *current* reproduction number (R) depends not just on the *basic* reproduction number (R<sub>0</sub>), but *also* on how many people are no longer <icon s></icon> Susceptible. (For example, by recovering & getting natural immunity.)
+しかし、<icon s></icon> が少なければ少ないほど <icon s></icon> が <icon i></icon> になるのは**遅く**なるのを思い出してほしい。**現在**の再生産数 (R) は、基本再生産数 (R<sub>0</sub>) だけではなく、何人が <icon s></icon> 感受性のある人じゃ無くなったかにも依存するということだ。(例えば、回復して自然免疫を獲得することで感受性が無くなる。)
 
 <div class="sim">
 		<iframe src="sim?stage=epi-6b&format=calc" width="285" height="390"></iframe>
 </div>
 
-When enough people have immunity, R < 1, and the virus is contained! This is called **herd immunity**. For flus, herd immunity is achieved *with a vaccine*. Trying to achieve "natural herd immunity" by letting folks get infected is a *terrible* idea. (But not for the reason you may think! We'll explain later.)
+十分な人に免疫があると、R < 1 となりウイルスを封じ込めたことになる! これは**集団免疫**と呼ばれる。インフルエンザでは、集団免疫は**ワクチンによって**達成させられる。人々に感染させることをで「自然な集団免疫」を得ようとするのは**酷い**考えだ。(しかし、あなたが考えているのとは違う理由だ! これは後ほど説明する。)
 
-Now, let's play the SEIR Model again, but showing R<sub>0</sub>, R over time, and the herd immunity threshold:
+SEIR モデルをいじってみよう。今回は R<sub>0</sub>、R の変化、および集団免疫の閾値を表示する:
 
 <div class="sim">
 		<iframe src="sim?stage=epi-7" width="800" height="540"></iframe>
 </div>
 
-**NOTE: Total cases *does not stop* at herd immunity, but overshoots it!** And it crosses the threshold *exactly* when current cases peak. (This happens no matter how you change the settings – try it for yourself!)
+**注意: 総患者数は集団免疫で止まらず、伸び続けてしまう!** これを「オーバーシュート」と言う。現在患者数がピークに達する時**ちょうど**に閾値をまたいでしまう。(これはどう設定を変えても起こってしまう。試してみよう!)
 
-This is because when there are more non-<icon s></icon>s than the herd immunity threshold, you get R < 1. And when R < 1, new cases stop growing: a peak.
+これは集団免疫閾値よりも多くの非-<icon s></icon> がいる時 R < 1 を得られるためだ。R < 1 になると新しい患者数は成長を止め、ピークとなる。
 
-**If there's only one lesson you take away from this guide, here it is** – it's an extremely complex diagram so please take time to fully absorb it:
+**もしこのガイドから 1つだけ学ぶとしたら、以下の事を学んでほしい**。これは非常に複雑な図式なので、じっくり時間をさいて考えてほしい:
 
 ![](pics/r3.png)
 
-**This means: we do NOT need to catch all transmissions, or even nearly all transmissions, to stop COVID-19!**
+**これは COVID-19 を止めるためには、全ての伝染を止める必要も、ほぼ全ての伝染を止める必要もないことを示している!**
 
-It's a paradox. COVID-19 is extremely contagious, yet to contain it, we "only" need to stop more than 60% of infections. 60%?! If that was a school grade, that's a D-. But if R<sub>0</sub> = 2.5, cutting that by 61% gives us R = 0.975, which is R < 1, virus is contained! (exact formula:[^exact_formula])
+これはパラドックスだ。COVID-19 は非常に伝染性が高い。しかし、封じ込めるには「たった」60% の伝染を止めるだけでいい。60%?! これが学校の成績ならば D- だ。しかし、もし R<sub>0</sub> = 2.5 ならば、それを 61% オフにすると R = 0.975 となり、これは R < 1 でウイルスを封じ込めることができた! (正確な公式:[^exact_formula])
 
 [^exact_formula]: Remember R = R<sub>0</sub> * the ratio of transmissions still allowed. Remember also that ratio of transmissions allowed = 1 - ratio of transmissions *stopped*.
     
@@ -226,67 +225,65 @@ It's a paradox. COVID-19 is extremely contagious, yet to contain it, we "only" n
 
 ![](pics/r4.png)
 
-(If you think R<sub>0</sub> or the other numbers in our simulations are too low/high, that's good you're challenging our assumptions! There'll be a "Sandbox Mode" at the end of this guide, where you can plug in your *own* numbers, and simulate what happens.)
+(R<sub>0</sub> その他の数値が高すぎるか低すぎると思うならば、前提を疑うのは良いことだ! このガイドの最後に「サンドボックス・モード」があってそこで自分の数値を入れてどうなるかをシミュレートできるようになっている。)
 
-*Every* COVID-19 intervention you've heard of – handwashing, social/physical distancing, lockdowns, self-isolation, contact tracing & quarantining, face masks, even "herd immunity" – they're *all* doing the same thing:
+あなたが聞いたことのある**全て**の COVID-19 対策、手洗い、社会的/物理的距離、ロックダウン、自己隔離、コンタクト・トレーシング、検疫、マスク、「集団免疫」などこれらは**全て**同じことを目指している。
 
-Getting R < 1.
+R < 1 を得ることだ。
 
-So now, let's use our "epidemic flight simulator" to figure this out: How can we get R < 1 in a way **that also protects our mental health *and* financial health?**
-
-Brace yourselves for an emergency landing...
+「エピデミック・フライト・シミュレーター」を使って以下を考えてみよう: **メンタルヘルスと金銭的な健全性の両方を保護する形**で R < 1 を達成するにはどうすればいいだろうか?
 
 <div class="section chapter">
     <div>
 		<img src="banners/curve.png" height=480 style="position: absolute;"/>
-        <div>The Next Few Months</div>
+        <div>次の数ヶ月のこと</div>
     </div>
 </div>
 
-...could have been worse. Here's a parallel universe we avoided:
+次の数ヶ月はより悪い事態にある可能性もあった。以下は、私たちが回避した並行世界だ:
 
-###Scenario 0: Do Absolutely Nothing
+### シナリオ 0: 一切何もしない
 
-Around 1 in 20 people infected with COVID-19 need to go to an ICU (Intensive Care Unit).[^icu_covid] In a rich country like the USA, there's 1 ICU bed per 3400 people.[^icu_us] Therefore, the USA can handle 20 out of 3400 people being *simultaneously* infected – or, 0.6% of the population.
+COVID-19 に感染した 20人に 1人は ICU (集中治療室) へ行く必要がある。[^icu_covid] アメリカのような裕福な国では人口 3400人に対して 1つの ICU ベッドがある。[^icu_us] つまり、アメリカは 3400 人のうち 20人のみが**同時**に感染するのを対処することができ、これは人口の 0.6% だ。
 
 [^icu_covid]: ["Percentage of COVID-19 cases in the United States from February 12 to March 16, 2020 that required intensive care unit (ICU) admission, by age group"](https://www.statista.com/statistics/1105420/covid-icu-admission-rates-us-by-age-group/). Between 4.9% to 11.5% of *all* COVID-19 cases required ICU. Generously picking the lower range, that's 5% or 1 in 20. Note that this total is specific to the US's age structure, and will be higher in countries with older populations, lower in countries with younger populations.
 
 [^icu_us]: “Number of ICU beds = 96,596”. From [the Society of Critical Care Medicine](https://sccm.org/Blog/March-2020/United-States-Resource-Availability-for-COVID-19) USA Population was 328,200,000 in 2019. 96,596 out of 328,200,000 = roughly 1 in 3400. 
 
-Even if we *more than tripled* that capacity to 2%, here's what would've happened *if we did absolutely nothing:*
+もしも、このキャパシティーを**3倍以上に上げて** 2% にしたとしても、一切何もしない場合はこうなる:
 
 <div class="sim">
 		<iframe src="sim?stage=int-1&format=lines" width="800" height="540"></iframe>
 </div>
 
-Not good.
+良くない結果だ。
 
-That's what [the March 16 Imperial College report](http://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-9-impact-of-npis-on-covid-19/) found: do nothing, and we run out of ICUs, with more than 80% of the population getting infected. 
-(remember: total cases *overshoots* herd immunity)
+これが[インペリアル・カレッジ・ロンドンの3月16日の報告書](http://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-9-impact-of-npis-on-covid-19/)での知見だ: 何もしないと、ICU が足りなくなり、人口の 80% が感染する。
+(総患者数は集団免疫をオーバーシュートすることを思い出してほしい)
 
-Even if only 0.5% of infected die – a generous assumption when there's no more ICUs – in a large country like the US, with 300 million people, 0.5% of 80% of 300 million = still 1.2 million dead... *IF we did nothing.*
+感染者の 0.5% が死亡したとしても (ICU が無い状態では寛大な前提だ) 3億人の人口を持つアメリカのような大きい国では、3億人の 80% の 0.5% = 120万人の死亡者を出すことになる... **もしも**一切何もしなければ。
 
-(Lots of news & social media reported "80% will be infected" *without* "IF WE DO NOTHING". Fear was channelled into clicks, not understanding. *Sigh.*)
+(ニュースやソーシャルメディアでは「もしも一切何もしなければ」を抜いて「80% が感染する」だけを報道した。恐怖は理解では無くクリック数にのみ注がれた。やれやれ。)
 
-###Scenario 1: Flatten The Curve / Herd Immunity
+### シナリオ 1: 曲線を平らにせよ / 集団免疫
 
-The "Flatten The Curve" plan was touted by every public health organization, while the United Kingdom's original "herd immunity" plan was universally booed. They were *the same plan.* The UK just communicated theirs poorly.[^yong]
+「曲線を平らにせよ」(flatten the curve) という計画は全ての公衆衛生団体によって売り込まれ、イギリスの「集団免疫」計画は全世界の非難を浴びた。これらは同じ計画だ。イギリスのコミュニケーションが下手くそだっただけだ。[^yong]
 
 [^yong]: “He says that the actual goal is the same as that of other countries: flatten the curve by staggering the onset of infections. As a consequence, the nation may achieve herd immunity; it’s a side effect, not an aim. [...] The government’s actual coronavirus action plan, available online, doesn’t mention herd immunity at all.”
     
     From a [The Atlantic article by Ed Yong](https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/)
 
-Both plans, though, had a literally fatal flaw.
+両方の計画とも、文字通り致命的な欠陥があった。
 
-First, let's look at the two main ways to "flatten the curve": handwashing & physical distancing.
+まずは「曲線を平らにする」ための主な 2つの方法を見ていこう: 手洗いと物理的距離戦略だ。
 
-Increased handwashing cuts flus & colds in high-income countries by ~25%[^handwashing], while the city-wide lockdown in London cut close contacts by ~70%[^london]. So, let's assume handwashing can reduce R by *up to* 25%, and distancing can reduce R by *up to* 70%:
+手洗いの増加は、高収入な国においてはインフルエンザや風邪を ~25% 減少させ[^handwashing]、ロンドンでの都市規模のロックダウンは接触を ~70% 減少させた[^london]。そのため、手洗いは R を最高で 25%、距離戦略は R を最高で 70% 減少させると仮定しよう:
 
 [^handwashing]: “All eight eligible studies reported that handwashing lowered risks of respiratory infection, with risk reductions ranging from 6% to 44% [pooled value 24% (95% CI 6–40%)].” We rounded up the pooled value to 25% in these simulations for simplicity. [Rabie, T. and Curtis, V.](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1365-3156.2006.01568.x) Note: as this meta-analysis points out, the quality of studies for handwashing (at least in high-income countries) are awful.
 
 [^london]: “We found a 73% reduction in the average daily number of contacts observed per participant. This would be sufficient to reduce R0 from a value from 2.6 before the lockdown to 0.62 (0.37 - 0.89) during the lockdown”. We rounded it down to 70% in these simulations for simplicity. [Jarvis and Zandvoort et al](https://cmmid.github.io/topics/covid19/comix-impact-of-physical-distance-measures-on-transmission-in-the-UK.html)
 
-**Play with this calculator to see how % of non-<icon s></icon>, handwashing, and distancing reduce R:** (this calculator visualizes their *relative* effects, which is why increasing one *looks* like it decreases the effect of the others.[^log_caveat])
+**この計算機をいじって非-<icon s></icon>%、手洗い、距離戦略が R を減少させるかを確かめてみよう:** (この計算機は**相対的**な効果を視覚化するので、1つを増加すると他の効果が減少したかのように見える。[^log_caveat])
 
 [^log_caveat]: This distortion would go away if we plotted R on a logarithmic scale... but then we'd have to explain *logarithmic scales.*
 
@@ -294,59 +291,59 @@ Increased handwashing cuts flus & colds in high-income countries by ~25%[^handwa
 		<iframe src="sim?stage=int-2a&format=calc" width="285" height="260"></iframe>
 </div>
 
-Now, let's simulate what happens to a COVID-19 epidemic if, starting March 2020, we had increased handwashing but only *mild* physical distancing – so that R is lower, but still above 1:
+次に、2020年3月から手洗いを増加させたが、**軽い**物理的距離戦略を取って、R は減少したが 1以上であった場合 COVID-19 エピデミックはどうなるかをシミュレートしてみよう:
 
 <div class="sim">
 		<iframe src="sim?stage=int-2&format=lines" width="800" height="540"></iframe>
 </div>
 
-Three notes:
+3点挙げられる:
 
-1. This *reduces* total cases! **Even if you don't get R < 1, reducing R still saves lives, by reducing the 'overshoot' above herd immunity.** Lots of folks think "Flatten The Curve" spreads out cases without reducing the total. This is impossible in *any* Epidemiology 101 model. But because the news reported "80%+ will be infected" as inevitable, folks thought total cases will be the same no matter what. *Sigh.*
+1. これは総患者数を**減少**させる! **R < 1 を達成できなくても、R を減少させるだけで集団免疫以上の「オーバーシュート」を減少させ、命を救うことができる。** 多くの人が「曲線を平らにせよ」はただ患者数を散らばらせただけで総患者数は減らないと思っている。疫学入門のどのモデルを使ってもそれは不可能だ。しかし、ニュースが「80% が感染する」と報道したせいで、何をしても総患者数は変わらないと思っている。やれやれ。
 
-2. Due to the extra interventions, current cases peak *before* herd immunity is reached. In fact, in this simulation, total cases only overshoots *a tiny bit* above herd immunity – the UK's plan! At that point, R < 1, you can let go of all other interventions, and COVID-19 stays contained! Well, except for one problem...
+2. 介入を強化することで、現在患者数は集団免疫を達成する**前**にピークする。事実このシミュレーションでは総患者数は集団免疫よりもほんのちょっとだけオーバーシュートする - これがイギリスの計画だ。その時点で R < 1 となり、全ての介入を解除しても COVID-19 は封鎖されたままとなる! ただし、1つだけ問題がある...
 
-3. You still run out of ICUs. For several months. (and remember, we *already* tripled ICUs for these simulations)
+3. ICU は足りなくなる。しかも数ヶ月に渡って。(これらのシミュレーションでは既に ICU のキャパシティーを 3倍に上げていることを思い出してほしい)
 
-That was the other finding of the March 16 Imperial College report, which convinced the UK to abandon its original plan. Any attempt at **mitigation** (reduce R, but R > 1) will fail. The only way out is **suppression** (reduce R so that R < 1).
+これがインペリアル・カレッジ・ロンドンの3月16日の報告書のもう 1つの知見で、これがイギリス政府の元の計画を捨てることを説得させた。全ての**緩和策** (R を減少させるが、R > 1) は失敗する。**抑制策** (R < 1 となるように R を減少させる) のみが唯一の道なのだ。
 
 ![](pics/mitigation_vs_suppression.png)
 
-That is, don't merely "flatten" the curve, *crush* the curve. For example, with a...
+つまり、曲線を「平ら」にするのではなく、**潰す**必要がある。
 
-###Scenario 2: Months-Long Lockdown
+### シナリオ 2: 数ヶ月に渡るロックダウン
 
-Let's see what happens if we *crush* the curve with a 5-month lockdown, reduce <icon i></icon> to nearly nothing, then finally – *finally* – return to normal life:
+5ヶ月に渡ってロックダウンして曲線を**潰して**、<icon i></icon> をほぼ無にして、やっと普通の生活に戻った場合を考察する:
 
 <div class="sim">
 		<iframe src="sim?stage=int-3&format=lines" width="800" height="540"></iframe>
 </div>
 
-Oh.
+ダメだ。
 
-This is the "second wave" everyone's talking about. As soon as we remove the lockdown, we get R > 1 again. So, a single leftover <icon i></icon> (or imported <icon i></icon>) can cause a spike in cases that's almost as bad as if we'd done Scenario 0: Absolutely Nothing.
+これが、皆が言っている「第二波」というものだ。ロックダウンを解除すると再び R > 1 となってしまう。そのため、1人残った <icon i></icon> (もしくは海外から来た <icon i></icon>) がシナリオ 0: 一切何もしないと同じような急上昇を発生させてしまう。
 
-**A lockdown isn't a cure, it's just a restart.**
+**ロックダウンは治療ではなく、ただのリスタートだ。**
 
-So, what, do we just lockdown again & again?
+ということは、何度もロックダウンを繰り返す必要があるのだろうか?
 
-###Scenario 3: Intermittent Lockdown
+### Scenario 3:  断続的ロックダウン
 
-This solution was first suggested by the March 16 Imperial College report, and later again by a Harvard paper.[^lockdown_harvard]
+この解決策は最初にインペリアル・カレッジ・ロンドンの3月16日の報告書で提案され、後にハーバードの論文でも提案された。[^lockdown_harvard]
 
 [^lockdown_harvard]: “Absent other interventions, a key metric for the success of social distancing is whether critical care capacities are exceeded. To avoid this, prolonged or intermittent social distancing may be necessary into 2022.” [Kissler and Tedijanto et al](https://science.sciencemag.org/content/early/2020/04/14/science.abb5793)
 
-**Here's a simulation:** (After playing the "recorded scenario", you can try simulating your *own* lockdown schedule, by changing the sliders *while* the simulation is running! Remember you can pause & continue the sim, and change the simulation speed)
+**シミュレートしてみよう:** (「録画されたシナリオ」を再生した後、シミュレーションが走っている間にスライダーを変化させて独自のロックダウンのスケジュールを試してほしい! シミュレーションを一時停止したり、スピードを変えることも可能だ。)
 
 <div class="sim">
 		<iframe src="sim?stage=int-4&format=lines" width="800" height="540"></iframe>
 </div>
 
-This *would* keep cases below ICU capacity! And it's *much* better than an 18-month lockdown until a vaccine is available. We just need to... shut down for a few months, open up for a few months, and repeat until a vaccine is available. (And if there's no vaccine, repeat until herd immunity is reached... in 2022.)
+この方法は患者数を ICU のキャパシティ以下に抑えることができる! そしてワクチンができるまで 18ヶ月間ロックダウンするよりは良い方法だ。ただ私たちは... 数ヶ月シャットダウンして、数ヶ月店開きして、というのをワクチンができるまで繰り返すことになる。(ワクチンが見つからなければ、集団免疫が得られる 2022年までそれを続けることになる)
 
-Look, it's nice to draw a line saying "ICU capacity", but there's lots of important things we *can't* simulate here. Like:
+「ICU キャパシティ」と書いた線を引くのは良いが、シミュレートすることができない大切な事が多くあるこを忘れてはいけない。例えば:
 
-**Mental Health:** Loneliness is one of the biggest risk factors for depression, anxiety, and suicide. And it's as associated with an early death as smoking 15 cigarettes a day.[^loneliness]
+**メンタルヘルス:** Loneliness is one of the biggest risk factors for depression, anxiety, and suicide. And it's as associated with an early death as smoking 15 cigarettes a day.[^loneliness]
 
 [^loneliness]: See [Figure 6 from Holt-Lunstad & Smith 2010](https://journals.sagepub.com/doi/abs/10.1177/1745691614568352). Of course, big disclaimer that they found a *correlation*. But unless you want to try randomly assigning people to be lonely for life, observational evidence is all you're gonna get.
 
@@ -358,7 +355,7 @@ But wait... haven't Taiwan and South Korea *already* contained COVID-19? For 4 w
 
 How?
 
-###Scenario 4: Test, Trace, Isolate
+### Scenario 4: Test, Trace, Isolate
 
 *"Sure, we \*could've\* done what Taiwan & South Korea did at the start, but it's too late now. We missed the start."*
 
