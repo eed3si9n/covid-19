@@ -53,7 +53,7 @@
 
 **疫学者は感染症シミュレーターを使って人類を墜落させない方法を学ぶ。**
 
-まずは、非常にシンプルな「感染症フライト・シミュレーター」を作ってみよう! このシミュレーションでは <icon i></icon> **伝染性のある人々**が <icon s></icon> **感受性のある人々**をより多くの <icon i></icon> 伝染性のある人々へ変えていく:
+まずは、非常にシンプルな「感染症フライト・シミュレーター」を作ってみよう! このシミュレーションでは <icon i></icon> **感染性のある (infectious) 人々**が <icon s></icon> **感受性のある人々**をより多くの <icon i></icon> 感染性のある人々へ変えていく:
 
 ![](pics/spread.png)
 
@@ -93,11 +93,11 @@ COVID-19 アウトブレイクの**初期**には、ウイルスは**平均し�
 
 これは「S字の」**ロジスティック成長曲線**と呼ばれる。初めは小さく、爆発して、また遅くなる。
 
-しかし、このシミュレーションは**それでも**間違っている。<icon i></icon> **伝染性のある人**がいずれ 1) 回復する 2) 肺に後遺症を持って「回復」する 3) 死亡するなどして伝染性が無くなることを計算に入れていない。
+しかし、このシミュレーションは**それでも**間違っている。<icon i></icon> **感染性のある人**がいずれ 1) 回復する 2) 肺に後遺症を持って「回復」する 3) 死亡するなどして感染性が無くなることを計算に入れていない。
 
-便宜性のため、全ての <icon i></icon> **伝染性のある人**は <icon r></icon> **回復した人**になることにしよう。(現実では、死んでしまう人もいることを覚えておいてほしい。) <icon r></icon> の人は再び感染することはできなくて、**とりあえず**一生免疫を持つと仮定しよう。
+便宜性のため、全ての <icon i></icon> **感染性のある人**は <icon r></icon> **回復した人**になることにしよう。(現実では、死んでしまう人もいることを覚えておいてほしい。) <icon r></icon> の人は再び感染することはできなくて、**とりあえず**一生免疫を持つと仮定しよう。
 
-COVID-19 では、<icon i></icon> **伝染性**は平均して10日続くと推定されている。[^infectiousness] そのため、10日経つ前に回復する人もいれば、10日経ってから回復する人もいるということだ。**<icon i></icon> が 100% から始めるたシミュレーションは以下のようになる:**
+COVID-19 では、<icon i></icon> **感染性**は平均して10日続くと推定されている。[^infectiousness] そのため、10日経つ前に回復する人もいれば、10日経ってから回復する人もいるということだ。**<icon i></icon> が 100% から始めるたシミュレーションは以下のようになる:**
 
 [^infectiousness]: “The median communicable period \[...\] was 9.5 days.” [Hu, Z., Song, C., Xu, C. et al](https://link.springer.com/article/10.1007/s11427-020-1661-4) Yes, we know "median" is not the same as "average". For simplified educational purposes, close enough.
 
@@ -122,7 +122,7 @@ COVID-19 では、<icon i></icon> **伝染性**は平均して10日続くと推�
 
 **これ**が有名な曲線の由来だ! ベル曲線でもないし、対数正規曲線も違う。名前はまだ無い。しかし、あなたはこれを平らにしようと懇願する人を既に何度も見たことがあるだろう。
 
-<icon s></icon>**S**usceptible (感受性) <icon i></icon>**I**nfectious (伝染性) <icon r></icon>**R**ecovered (回復) の頭文字を取ってこれを **SIR モデル** [^sir] と呼ぶ。これは疫学入門で 2番目に大切なことだ:
+<icon s></icon>**S**usceptible (感受性) <icon i></icon>**I**nfectious (感染性) <icon r></icon>**R**ecovered (回復) の頭文字を取ってこれを **SIR モデル** [^sir] と呼ぶ。これは疫学入門で 2番目に大切なことだ:
 
 [^sir]: For more technical explanations of the SIR Model, see [the Institute for Disease Modeling](https://www.idmod.org/docs/hiv/model-sir.html#) and [Wikipedia](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model)
 
@@ -130,7 +130,7 @@ COVID-19 では、<icon i></icon> **伝染性**は平均して10日続くと推�
 
 **注意: 政策の計画に使われるシミュレーションはこれよりもっと、もっと高度なものだ!** しかし、この SIRモデルにニュアンスが欠けるとしても、分かっている知見を説明することは可能だ。
 
-やっぱりもう1つのニュアンスを追加しよう。<icon s></icon> の人が <icon i></icon> になる前に、その人たちは <icon e></icon> **曝露**した人になる。これは、ウイルスを保菌するが、他の人にはまだうつせない状態で、**感染した**がまだ**伝染性が無い**状態だ。
+やっぱりもう1つのニュアンスを追加しよう。<icon s></icon> の人が <icon i></icon> になる前に、その人たちは <icon e></icon> **曝露**した人になる。これは、ウイルスを保菌するが、他の人にはまだうつせない状態で、**感染した**がまだ**感染力が無い**状態だ。
 
 ![](pics/seir.png)
 
@@ -138,11 +138,11 @@ COVID-19 では、<icon i></icon> **伝染性**は平均して10日続くと推�
 
 [^seir]: For more technical explanations of the SEIR Model, see [the Institute for Disease Modeling](https://www.idmod.org/docs/hiv/model-seir.html) and [Wikipedia](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model)
 
-COVID-19 では、<icon e></icon> 「感染したが、伝染性は無い」状態が**平均して** 3日続くと推定されている。[^latent] これをシミュレーションに追加するとどうなるだろう?
+COVID-19 では、<icon e></icon> 「感染したが、感染力は無い」状態が**平均して** 3日続くと推定されている。[^latent] これをシミュレーションに追加するとどうなるだろう?
 
 [^latent]: “Assuming an incubation period distribution of mean 5.2 days from a separate study of early COVID-19 cases, we inferred that infectiousness started from 2.3 days (95% CI, 0.8–3.0 days) before symptom onset” (translation: Assuming symptoms start at 5 days, infectiousness starts 2 days before = Infectiousness starts at 3 days) [He, X., Lau, E.H.Y., Wu, P. et al.](https://www.nature.com/articles/s41591-020-0869-5)
 
-<b style='color:#ff4040'>赤 <b style='color:#FF9393'>+ ピンク</b> の曲線</b>は**現在**の患者数 (伝染性 <icon i></icon> + 曝露 <icon e></icon>) で、    
+<b style='color:#ff4040'>赤 <b style='color:#FF9393'>+ ピンク</b> の曲線</b>は**現在**の患者数 (感染性 <icon i></icon> + 曝露 <icon e></icon>) で、    
 <b style='color:#888'>グレーの曲線</b>は**総患者数** (現在 + 回復済み <icon r></icon>) だ:
 
 <div class="sim">
@@ -155,7 +155,7 @@ COVID-19 では、<icon e></icon> 「感染したが、伝染性は無い」状�
 
 ![](pics/r.png)
 
-これは再生産数 (reproduction number) の略だ。これは <icon i></icon> の人が回復 (もしくは死亡) する前に何人伝染させるかの**平均**だ。
+これは再生産数 (reproduction number) の略だ。これは <icon i></icon> の人が回復 (もしくは死亡) する前に何人感染させるかの**平均**だ。
 
 ![](pics/r2.png)
 
@@ -165,7 +165,7 @@ COVID-19 では、<icon e></icon> 「感染したが、伝染性は無い」状�
 
 (多くのニュース記事や、論文でさえこの R と R<sub>0</sub> が混同されている。科学用語は悪だ。)
 
-季節性インフルエンザの R<sub>0</sub> は約 1.28[^r0_flu]だ。そのため、インフルエンザのアウトブレイク**初め**は、<icon i></icon> の人は**平均して** 1.28人に伝染させる。(これが整数じゃないことに違和感があるならば、平均すると母親は 2.4人の子供を持つことを考えてみて欲しい。だからといって、半分になった子供が走り回っている訳ではない。)
+季節性インフルエンザの R<sub>0</sub> は約 1.28[^r0_flu]だ。そのため、インフルエンザのアウトブレイク**初め**は、<icon i></icon> の人は**平均して** 1.28人に感染させる。(これが整数じゃないことに違和感があるならば、平均すると母親は 2.4人の子供を持つことを考えてみて欲しい。だからといって、半分になった子供が走り回っている訳ではない。)
 
 [^r0_flu]: “The median R value for seasonal influenza was 1.28 (IQR: 1.19–1.37)” [Biggerstaff, M., Cauchemez, S., Reed, C. et al.](https://bmcinfectdis.biomedcentral.com/articles/10.1186/1471-2334-14-480)
 
@@ -175,11 +175,11 @@ COVID-19 の R<sub>0</sub> は約 2.2 だと推定されていて[^r0_covid]、�
 
 [^r0_wuhan]: “we calculated a median R0 value of 5.7 (95% CI 3.8–8.9)” [Sanche S, Lin YT, Xu C, Romero-Severson E, Hengartner N, Ke R.](https://wwwnc.cdc.gov/eid/article/26/7/20-0282_article)
 
-私たちのシミュレーションでは、**初期には平均して** 1人の <icon i></icon> は 10日の間、誰かを 4日毎に伝染させる。「4日」は「10日」に 2.5回入る。そのため、**初期には平均して** 1人の <icon i></icon> は 2.5人の他人に伝染させる。つまり、 R<sub>0</sub> = 2.5 となる。 (注意:[^r0_caveats_sim])
+私たちのシミュレーションでは、**初期には平均して** 1人の <icon i></icon> は 10日の間、誰かを 4日毎に感染させる。「4日」は「10日」に 2.5回入る。そのため、**初期には平均して** 1人の <icon i></icon> は 2.5人の他人に感染させる。つまり、 R<sub>0</sub> = 2.5 となる。 (注意:[^r0_caveats_sim])
 
-[^r0_caveats_sim]: これは伝染期間中等しく伝染性を持つことを仮定する。教育目的のための簡易化だ。
+[^r0_caveats_sim]: これは感染期間中等しく感染性を持つことを仮定する。教育目的のための簡易化だ。
 
-**R<sub>0</sub> 計算機をいじってみて、R<sub>0</sub> が回復に要する期間と新しい伝染に要する期間に依存することを確かめてみよう:**
+**R<sub>0</sub> 計算機をいじってみて、R<sub>0</sub> が回復に要する期間と新しい感染に要する期間に依存することを確かめてみよう:**
 
 <div class="sim">
 		<iframe src="sim?stage=epi-6a&format=calc" width="285" height="255"></iframe>
@@ -207,9 +207,9 @@ SEIR モデルをいじってみよう。今回は R<sub>0</sub>、R の変化�
 
 ![](pics/r3.png)
 
-**これは COVID-19 を止めるためには、全ての伝染を止める必要も、ほぼ全ての伝染を止める必要もないことを示している!**
+**これは COVID-19 を止めるためには、全ての感染を止める必要も、ほぼ全ての感染を止める必要もないことを示している!**
 
-これはパラドックスだ。COVID-19 は非常に伝染性が高い。しかし、封じ込めるには「たった」60% の伝染を止めるだけでいい。60%?! これが学校の成績ならば D- だ。しかし、もし R<sub>0</sub> = 2.5 ならば、それを 61% オフにすると R = 0.975 となり、これは R < 1 でウイルスを封じ込めることができた! (正確な公式:[^exact_formula])
+これはパラドックスだ。COVID-19 は非常に感染性が高い。しかし、封じ込めるには「たった」60% の感染を止めるだけでいい。60%?! これが学校の成績ならば D- だ。しかし、もし R<sub>0</sub> = 2.5 ならば、それを 61% オフにすると R = 0.975 となり、これは R < 1 でウイルスを封じ込めることができた! (正確な公式:[^exact_formula])
 
 [^exact_formula]: Remember R = R<sub>0</sub> * the ratio of transmissions still allowed. Remember also that ratio of transmissions allowed = 1 - ratio of transmissions *stopped*.
     
@@ -375,7 +375,7 @@ COVID-19 に感染した 20人に 1人は ICU (集中治療室) へ行く必要�
 
 ![](pics/timeline2.png)
 
-事実全ての伝染の 44% は発症前だ! [^pre_symp]
+事実全ての感染の 44% は発症前だ! [^pre_symp]
 
 [^pre_symp]: “We estimated that 44% (95% confidence interval, 25–69%) of secondary cases were infected during the index cases’ presymptomatic stage” [He, X., Lau, E.H.Y., Wu, P. et al](https://www.nature.com/articles/s41591-020-0869-5)
 
@@ -411,7 +411,7 @@ TCN Protocol[^tcn] や MIT PACT[^pact] といった同様のチームと共に�
 
 [^gapple]: [Apple and Google partner on COVID-19 contact tracing technology ](https://www.apple.com/ca/newsroom/2020/04/apple-and-google-partner-on-covid-19-contact-tracing-technology/). Note they're not making the apps *themselves*, just creating the systems that will *support* those apps.
 
-スマートフォンを持っていない人はどうするのだろうか? もしくはドアノブからの感染? もしくは「真の」無症状の患者からの感染? コンタクト・トレーシング・アプリは全ての伝染をキャッチすることはできない... **それでも大丈夫!** 私たちは**全て**の伝染を防ぐ必要は無く、60%+ さえ防げれば R < 1 を得られるからだ。
+スマートフォンを持っていない人はどうするのだろうか? もしくはドアノブからの感染? もしくは「真の」無症状の患者からの感染? コンタクト・トレーシング・アプリは全ての感染をキャッチすることはできない... **それでも大丈夫!** 私たちは**全て**の感染を防ぐ必要は無く、60%+ さえ防げれば R < 1 を得られるからだ。
 
 (発症前と「真の」無症状の混乱に関する愚痴。「真の」無症状はまれだ:[^rant])
 
@@ -489,7 +489,7 @@ TCN Protocol[^tcn] や MIT PACT[^pact] といった同様のチームと共に�
 
 ![](pics/masks.png)
 
-これに数字を付けると、**病気になった人**にサージカルマスクを付けると風邪やインフルエンザの飛沫を 70% 軽減できる。[^outgoing] 伝染の 70% を軽減できれば、それはロックダウンと同じ効果がある!
+これに数字を付けると、**病気になった人**にサージカルマスクを付けると風邪やインフルエンザの飛沫を 70% 軽減できる。[^outgoing] 感染の 70% を軽減できれば、それはロックダウンと同じ効果がある!
 
 しかし、マスクが COVID-19 に対しても**確実**に有効であるかは分かっていない。科学においては、知見が 95% 確実である場合のみ論文として掲載されるべきだ (...べきだ[^replication])。2020年5月1日現在においてマスクは「95% 確実」を得ていない。
 
@@ -501,7 +501,7 @@ TCN Protocol[^tcn] や MIT PACT[^pact] といった同様のチームと共に�
 
 コスト: 手作りの布マスク (サージカルマスクに比較して ~2/3 の効果がある[^homemade]) は非常に安価だ。サージカルマスクも少し高めだが、比較的安価である。
 
-利益: 手術用マスクが 50-50 の確率で伝染を 0% もしくは 70% 軽減させるとしても、平均した「期待値」は 35% で、これはロックダウン半分となる! 大雑把に計算するとサージカルマスクが R を最高で 35% 軽減できるとすると不確定要素を勘案したことになる。(再度言うが、スライダーを上下に動かして私たちの前提条件に物申すことができる)
+利益: 手術用マスクが 50-50 の確率で感染を 0% もしくは 70% 軽減させるとしても、平均した「期待値」は 35% で、これはロックダウン半分となる! 大雑把に計算するとサージカルマスクが R を最高で 35% 軽減できるとすると不確定要素を勘案したことになる。(再度言うが、スライダーを上下に動かして私たちの前提条件に物申すことができる)
 
 <div class="sim">
 		<iframe src="sim?stage=int-6a&format=calc" width="285" height="380"></iframe>

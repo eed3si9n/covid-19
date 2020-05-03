@@ -117,7 +117,7 @@
 
 <p><strong>疫学者は感染症シミュレーターを使って人類を墜落させない方法を学ぶ。</strong></p>
 
-<p>まずは、非常にシンプルな「感染症フライト・シミュレーター」を作ってみよう! このシミュレーションでは <icon i></icon> <strong>伝染性のある人々</strong>が <icon s></icon> <strong>感受性のある人々</strong>をより多くの <icon i></icon> 伝染性のある人々へ変えていく:</p>
+<p>まずは、非常にシンプルな「感染症フライト・シミュレーター」を作ってみよう! このシミュレーションでは <icon i></icon> <strong>感染性のある (infectious) 人々</strong>が <icon s></icon> <strong>感受性のある人々</strong>をより多くの <icon i></icon> 感染性のある人々へ変えていく:</p>
 
 <p><img src="pics/spread.png" alt=""></p>
 
@@ -149,11 +149,11 @@
 
 <p>これは「S字の」<strong>ロジスティック成長曲線</strong>と呼ばれる。初めは小さく、爆発して、また遅くなる。</p>
 
-<p>しかし、このシミュレーションは<strong>それでも</strong>間違っている。<icon i></icon> <strong>伝染性のある人</strong>がいずれ 1) 回復する 2) 肺に後遺症を持って「回復」する 3) 死亡するなどして伝染性が無くなることを計算に入れていない。</p>
+<p>しかし、このシミュレーションは<strong>それでも</strong>間違っている。<icon i></icon> <strong>感染性のある人</strong>がいずれ 1) 回復する 2) 肺に後遺症を持って「回復」する 3) 死亡するなどして感染性が無くなることを計算に入れていない。</p>
 
-<p>便宜性のため、全ての <icon i></icon> <strong>伝染性のある人</strong>は <icon r></icon> <strong>回復した人</strong>になることにしよう。(現実では、死んでしまう人もいることを覚えておいてほしい。) <icon r></icon> の人は再び感染することはできなくて、<strong>とりあえず</strong>一生免疫を持つと仮定しよう。</p>
+<p>便宜性のため、全ての <icon i></icon> <strong>感染性のある人</strong>は <icon r></icon> <strong>回復した人</strong>になることにしよう。(現実では、死んでしまう人もいることを覚えておいてほしい。) <icon r></icon> の人は再び感染することはできなくて、<strong>とりあえず</strong>一生免疫を持つと仮定しよう。</p>
 
-<p>COVID-19 では、<icon i></icon> <strong>伝染性</strong>は平均して10日続くと推定されている。<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup> そのため、10日経つ前に回復する人もいれば、10日経ってから回復する人もいるということだ。<strong><icon i></icon> が 100% から始めるたシミュレーションは以下のようになる:</strong></p>
+<p>COVID-19 では、<icon i></icon> <strong>感染性</strong>は平均して10日続くと推定されている。<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup> そのため、10日経つ前に回復する人もいれば、10日経ってから回復する人もいるということだ。<strong><icon i></icon> が 100% から始めるたシミュレーションは以下のようになる:</strong></p>
 
 <div class="sim">
         <iframe src="sim?stage=epi-3" width="800" height="540"></iframe>
@@ -176,21 +176,21 @@
 
 <p><strong>これ</strong>が有名な曲線の由来だ! ベル曲線でもないし、対数正規曲線も違う。名前はまだ無い。しかし、あなたはこれを平らにしようと懇願する人を既に何度も見たことがあるだろう。</p>
 
-<p><icon s></icon><strong>S</strong>usceptible (感受性) <icon i></icon><strong>I</strong>nfectious (伝染性) <icon r></icon><strong>R</strong>ecovered (回復) の頭文字を取ってこれを <strong>SIR モデル</strong> <sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup> と呼ぶ。これは疫学入門で 2番目に大切なことだ:</p>
+<p><icon s></icon><strong>S</strong>usceptible (感受性) <icon i></icon><strong>I</strong>nfectious (感染性) <icon r></icon><strong>R</strong>ecovered (回復) の頭文字を取ってこれを <strong>SIR モデル</strong> <sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup> と呼ぶ。これは疫学入門で 2番目に大切なことだ:</p>
 
 <p><img src="pics/sir.png" alt=""></p>
 
 <p><strong>注意: 政策の計画に使われるシミュレーションはこれよりもっと、もっと高度なものだ!</strong> しかし、この SIRモデルにニュアンスが欠けるとしても、分かっている知見を説明することは可能だ。</p>
 
-<p>やっぱりもう1つのニュアンスを追加しよう。<icon s></icon> の人が <icon i></icon> になる前に、その人たちは <icon e></icon> <strong>曝露</strong>した人になる。これは、ウイルスを保菌するが、他の人にはまだうつせない状態で、<strong>感染した</strong>がまだ<strong>伝染性が無い</strong>状態だ。</p>
+<p>やっぱりもう1つのニュアンスを追加しよう。<icon s></icon> の人が <icon i></icon> になる前に、その人たちは <icon e></icon> <strong>曝露</strong>した人になる。これは、ウイルスを保菌するが、他の人にはまだうつせない状態で、<strong>感染した</strong>がまだ<strong>感染力が無い</strong>状態だ。</p>
 
 <p><img src="pics/seir.png" alt=""></p>
 
 <p><strong>曝露</strong> (Exposed) の &quot;E&quot; を取って、これは <strong>SEIR モデル</strong><sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup>と呼ばれる。日常的な「さらされる」という意味だとウイルスを持っているか、持っていないか両方に取れるかもしれない。用語としての「曝露」は、確実にウイルスを保菌した状態だ。</p>
 
-<p>COVID-19 では、<icon e></icon> 「感染したが、伝染性は無い」状態が<strong>平均して</strong> 3日続くと推定されている。<sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup> これをシミュレーションに追加するとどうなるだろう?</p>
+<p>COVID-19 では、<icon e></icon> 「感染したが、感染力は無い」状態が<strong>平均して</strong> 3日続くと推定されている。<sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup> これをシミュレーションに追加するとどうなるだろう?</p>
 
-<p><b style='color:#ff4040'>赤 <b style='color:#FF9393'>+ ピンク</b> の曲線</b>は<strong>現在</strong>の患者数 (伝染性 <icon i></icon> + 曝露 <icon e></icon>) で、<br><br>
+<p><b style='color:#ff4040'>赤 <b style='color:#FF9393'>+ ピンク</b> の曲線</b>は<strong>現在</strong>の患者数 (感染性 <icon i></icon> + 曝露 <icon e></icon>) で、<br><br>
 <b style='color:#888'>グレーの曲線</b>は<strong>総患者数</strong> (現在 + 回復済み <icon r></icon>) だ:</p>
 
 <div class="sim">
@@ -203,7 +203,7 @@
 
 <p><img src="pics/r.png" alt=""></p>
 
-<p>これは再生産数 (reproduction number) の略だ。これは <icon i></icon> の人が回復 (もしくは死亡) する前に何人伝染させるかの<strong>平均</strong>だ。</p>
+<p>これは再生産数 (reproduction number) の略だ。これは <icon i></icon> の人が回復 (もしくは死亡) する前に何人感染させるかの<strong>平均</strong>だ。</p>
 
 <p><img src="pics/r2.png" alt=""></p>
 
@@ -213,13 +213,13 @@
 
 <p>(多くのニュース記事や、論文でさえこの R と R<sub>0</sub> が混同されている。科学用語は悪だ。)</p>
 
-<p>季節性インフルエンザの R<sub>0</sub> は約 1.28<sup id="fnref8"><a href="#fn8" rel="footnote">8</a></sup>だ。そのため、インフルエンザのアウトブレイク<strong>初め</strong>は、<icon i></icon> の人は<strong>平均して</strong> 1.28人に伝染させる。(これが整数じゃないことに違和感があるならば、平均すると母親は 2.4人の子供を持つことを考えてみて欲しい。だからといって、半分になった子供が走り回っている訳ではない。)</p>
+<p>季節性インフルエンザの R<sub>0</sub> は約 1.28<sup id="fnref8"><a href="#fn8" rel="footnote">8</a></sup>だ。そのため、インフルエンザのアウトブレイク<strong>初め</strong>は、<icon i></icon> の人は<strong>平均して</strong> 1.28人に感染させる。(これが整数じゃないことに違和感があるならば、平均すると母親は 2.4人の子供を持つことを考えてみて欲しい。だからといって、半分になった子供が走り回っている訳ではない。)</p>
 
 <p>COVID-19 の R<sub>0</sub> は約 2.2 だと推定されていて<sup id="fnref9"><a href="#fn9" rel="footnote">9</a></sup>、まだ最終的な結果は出ていないが武漢では 5.7(!) であったという研究が出ている。<sup id="fnref10"><a href="#fn10" rel="footnote">10</a></sup></p>
 
-<p>私たちのシミュレーションでは、<strong>初期には平均して</strong> 1人の <icon i></icon> は 10日の間、誰かを 4日毎に伝染させる。「4日」は「10日」に 2.5回入る。そのため、<strong>初期には平均して</strong> 1人の <icon i></icon> は 2.5人の他人に伝染させる。つまり、 R<sub>0</sub> = 2.5 となる。 (注意:<sup id="fnref11"><a href="#fn11" rel="footnote">11</a></sup>)</p>
+<p>私たちのシミュレーションでは、<strong>初期には平均して</strong> 1人の <icon i></icon> は 10日の間、誰かを 4日毎に感染させる。「4日」は「10日」に 2.5回入る。そのため、<strong>初期には平均して</strong> 1人の <icon i></icon> は 2.5人の他人に感染させる。つまり、 R<sub>0</sub> = 2.5 となる。 (注意:<sup id="fnref11"><a href="#fn11" rel="footnote">11</a></sup>)</p>
 
-<p><strong>R<sub>0</sub> 計算機をいじってみて、R<sub>0</sub> が回復に要する期間と新しい伝染に要する期間に依存することを確かめてみよう:</strong></p>
+<p><strong>R<sub>0</sub> 計算機をいじってみて、R<sub>0</sub> が回復に要する期間と新しい感染に要する期間に依存することを確かめてみよう:</strong></p>
 
 <div class="sim">
         <iframe src="sim?stage=epi-6a&format=calc" width="285" height="255"></iframe>
@@ -247,9 +247,9 @@
 
 <p><img src="pics/r3.png" alt=""></p>
 
-<p><strong>これは COVID-19 を止めるためには、全ての伝染を止める必要も、ほぼ全ての伝染を止める必要もないことを示している!</strong></p>
+<p><strong>これは COVID-19 を止めるためには、全ての感染を止める必要も、ほぼ全ての感染を止める必要もないことを示している!</strong></p>
 
-<p>これはパラドックスだ。COVID-19 は非常に伝染性が高い。しかし、封じ込めるには「たった」60% の伝染を止めるだけでいい。60%?! これが学校の成績ならば D- だ。しかし、もし R<sub>0</sub> = 2.5 ならば、それを 61% オフにすると R = 0.975 となり、これは R &lt; 1 でウイルスを封じ込めることができた! (正確な公式:<sup id="fnref12"><a href="#fn12" rel="footnote">12</a></sup>)</p>
+<p>これはパラドックスだ。COVID-19 は非常に感染性が高い。しかし、封じ込めるには「たった」60% の感染を止めるだけでいい。60%?! これが学校の成績ならば D- だ。しかし、もし R<sub>0</sub> = 2.5 ならば、それを 61% オフにすると R = 0.975 となり、これは R &lt; 1 でウイルスを封じ込めることができた! (正確な公式:<sup id="fnref12"><a href="#fn12" rel="footnote">12</a></sup>)</p>
 
 <p><img src="pics/r4.png" alt=""></p>
 
@@ -379,7 +379,7 @@
 
 <p><img src="pics/timeline2.png" alt=""></p>
 
-<p>事実全ての伝染の 44% は発症前だ! <sup id="fnref22"><a href="#fn22" rel="footnote">22</a></sup></p>
+<p>事実全ての感染の 44% は発症前だ! <sup id="fnref22"><a href="#fn22" rel="footnote">22</a></sup></p>
 
 <p>しかし、発症している患者の近日中の接触者を探して、<strong>隔離</strong>すれば、一歩先を行くことで拡散は防止できる!</p>
 
@@ -405,7 +405,7 @@
 
 <p>TCN Protocol<sup id="fnref23"><a href="#fn23" rel="footnote">23</a></sup> や MIT PACT<sup id="fnref24"><a href="#fn24" rel="footnote">24</a></sup> といった同様のチームと共に彼らは Apple と Google がプライバシー・ファーストなコンタクト・トレーシングを Android と iOS に組み込むインスピレーションとなった。<sup id="fnref25"><a href="#fn25" rel="footnote">25</a></sup> (Google や Apple を信頼できないって? このシステムの良さは、信頼を必要としない事だ。) いずれ公衆衛生機関がアプリをダウンロードするように言ってくるかもしれない。もしも、これがプライバシー・ファーストで公開されたコードならば是非ダウンロードしてほしい!</p>
 
-<p>スマートフォンを持っていない人はどうするのだろうか? もしくはドアノブからの感染? もしくは「真の」無症状の患者からの感染? コンタクト・トレーシング・アプリは全ての伝染をキャッチすることはできない... <strong>それでも大丈夫!</strong> 私たちは<strong>全て</strong>の伝染を防ぐ必要は無く、60%+ さえ防げれば R &lt; 1 を得られるからだ。</p>
+<p>スマートフォンを持っていない人はどうするのだろうか? もしくはドアノブからの感染? もしくは「真の」無症状の患者からの感染? コンタクト・トレーシング・アプリは全ての感染をキャッチすることはできない... <strong>それでも大丈夫!</strong> 私たちは<strong>全て</strong>の感染を防ぐ必要は無く、60%+ さえ防げれば R &lt; 1 を得られるからだ。</p>
 
 <p>(発症前と「真の」無症状の混乱に関する愚痴。「真の」無症状はまれだ:<sup id="fnref26"><a href="#fn26" rel="footnote">26</a></sup>)</p>
 
@@ -464,7 +464,7 @@
 
 <p><img src="pics/masks.png" alt=""></p>
 
-<p>これに数字を付けると、<strong>病気になった人</strong>にサージカルマスクを付けると風邪やインフルエンザの飛沫を 70% 軽減できる。<sup id="fnref29"><a href="#fn29" rel="footnote">29</a></sup> 伝染の 70% を軽減できれば、それはロックダウンと同じ効果がある!</p>
+<p>これに数字を付けると、<strong>病気になった人</strong>にサージカルマスクを付けると風邪やインフルエンザの飛沫を 70% 軽減できる。<sup id="fnref29"><a href="#fn29" rel="footnote">29</a></sup> 感染の 70% を軽減できれば、それはロックダウンと同じ効果がある!</p>
 
 <p>しかし、マスクが COVID-19 に対しても<strong>確実</strong>に有効であるかは分かっていない。科学においては、知見が 95% 確実である場合のみ論文として掲載されるべきだ (...べきだ<sup id="fnref30"><a href="#fn30" rel="footnote">30</a></sup>)。2020年5月1日現在においてマスクは「95% 確実」を得ていない。</p>
 
@@ -472,7 +472,7 @@
 
 <p>コスト: 手作りの布マスク (サージカルマスクに比較して ~2/3 の効果がある<sup id="fnref32"><a href="#fn32" rel="footnote">32</a></sup>) は非常に安価だ。サージカルマスクも少し高めだが、比較的安価である。</p>
 
-<p>利益: 手術用マスクが 50-50 の確率で伝染を 0% もしくは 70% 軽減させるとしても、平均した「期待値」は 35% で、これはロックダウン半分となる! 大雑把に計算するとサージカルマスクが R を最高で 35% 軽減できるとすると不確定要素を勘案したことになる。(再度言うが、スライダーを上下に動かして私たちの前提条件に物申すことができる)</p>
+<p>利益: 手術用マスクが 50-50 の確率で感染を 0% もしくは 70% 軽減させるとしても、平均した「期待値」は 35% で、これはロックダウン半分となる! 大雑把に計算するとサージカルマスクが R を最高で 35% 軽減できるとすると不確定要素を勘案したことになる。(再度言うが、スライダーを上下に動かして私たちの前提条件に物申すことができる)</p>
 
 <div class="sim">
         <iframe src="sim?stage=int-6a&format=calc" width="285" height="380"></iframe>
@@ -711,7 +711,7 @@
 </li>
 
 <li id="fn11">
-<p>これは伝染期間中等しく伝染性を持つことを仮定する。教育目的のための簡易化だ。&nbsp;<a href="#fnref11" rev="footnote">&#8617;</a></p>
+<p>これは感染期間中等しく感染性を持つことを仮定する。教育目的のための簡易化だ。&nbsp;<a href="#fnref11" rev="footnote">&#8617;</a></p>
 </li>
 
 <li id="fn12">
@@ -869,6 +869,7 @@
 
 </ol>
 </div>
+
 
 <!-- ================== end ================= -->
 
